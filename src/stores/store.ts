@@ -21,5 +21,8 @@ export const useStore = defineStore({
     addBasket(product: IProduct) {
       this.basket.push(product);
     },
+    removeWishlist(product: IProduct) {
+      this.wishlist = this.wishlist.filter((p: IProduct) => p.id !== product.id);
+    },
   },
 });

@@ -2,13 +2,7 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import { getProducts } from "@/api/products";
 import Product from "./Product.vue";
-
-interface IProduct {
-  articleNumber: string;
-  articleDescription: string;
-  qualityName: string;
-  image: string;
-}
+import type { IProduct } from "@/types/products";
 
 const products = ref([] as Array<IProduct>);
 
@@ -25,6 +19,7 @@ onMounted(async () => {
       :title="product.articleDescription"
       :quality="product.qualityName"
       :image="products.image"
+      :productId="product.id"
       :key="product.articleNumber"
     ></Product>
   </div>
