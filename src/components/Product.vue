@@ -30,6 +30,16 @@ const addBasket = () => {
     inBasket.value = true;
   }
 };
+
+const addWishlist = () => {
+  inWishlist.value = true;
+  store.addWishlist(product);
+};
+
+const removeWishlist = () => {
+  inWishlist.value = false;
+  store.removeWishlist(product);
+};
 </script>
 
 <template>
@@ -47,28 +57,8 @@ const addBasket = () => {
         </div>
       </div>
       <div class="product__wishlist">
-        <img
-          v-if="inWishlist"
-          @click="
-            () => {
-              inWishlist = false;
-              store.removeWishlist(product);
-            }
-          "
-          :src="iconStar"
-          alt="Remove from wishlist"
-        />
-        <img
-          v-else
-          @click="
-            () => {
-              inWishlist = true;
-              store.addWishlist(product);
-            }
-          "
-          :src="iconStarO"
-          alt="Save to wishlist"
-        />
+        <img v-if="inWishlist" @click="removeWishlist" :src="iconStar" alt="Remove from wishlist" />
+        <img v-else @click="addWishlist" :src="iconStarO" alt="Save to wishlist" />
       </div>
     </div>
 
@@ -85,6 +75,7 @@ const addBasket = () => {
   }
   &__description {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 12px;
 
     &__title {

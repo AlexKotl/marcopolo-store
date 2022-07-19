@@ -8,21 +8,36 @@ const store = useStore();
 
 <template>
   <div class="header">
-    <div class="header__search">
-      <input type="text" placeholder="Quick search..." class="header__search__input" />
-    </div>
-    <div class="header__menu">
-      <CountButton :count="store.wishlistCount" :icon="iconStarO" />
-      <CountButton :count="store.basketCount" :icon="iconBasket" />
+    <div class="header__container">
+      <div class="header__search">
+        <input type="text" placeholder="Quick search..." class="header__search__input" />
+      </div>
+      <div class="header__menu">
+        <CountButton :count="store.wishlistCount" :icon="iconStarO" />
+        <CountButton :count="store.basketCount" :icon="iconBasket" />
+      </div>
     </div>
   </div>
+  <div class="spacer"></div>
 </template>
 
 <style lang="scss" scoped>
+.spacer {
+  height: 100px;
+}
 .header {
-  display: flex;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: 0 0 10px #e2e2e2;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+
+  &__container {
+    display: flex;
+    margin: auto;
+    padding: 17px 10px;
+    max-width: 800px;
+  }
 
   &__search {
     flex: 1 1 0;

@@ -4,8 +4,8 @@ import ProductList from "./components/ProductList.vue";
 </script>
 
 <template>
+  <AppHeader />
   <div class="container">
-    <AppHeader />
     <ProductList />
   </div>
 </template>
@@ -13,7 +13,7 @@ import ProductList from "./components/ProductList.vue";
 <style lang="scss" scoped>
 .container {
   max-width: 800px;
-  padding: 0 10px;
   margin: auto;
+  padding: 0 10px;
 }
 </style>
