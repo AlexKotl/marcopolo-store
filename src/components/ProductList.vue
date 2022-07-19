@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
-import { getProducts } from "@/api/products";
+import { getProducts, getFilteredProducts } from "@/api/products";
 import Product from "./Product.vue";
 import type { IProduct } from "@/types/products";
 
 const products = ref([] as Array<IProduct>);
 
 onMounted(async () => {
-  const { data } = await getProducts();
-  products.value = data.products;
+  products.value = await getFilteredProducts();
 });
 </script>
 

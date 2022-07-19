@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppHeader from "./components/AppHeader.vue";
 import ProductList from "./components/ProductList.vue";
+import AppFooter from "./components/AppFooter.vue";
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import ProductList from "./components/ProductList.vue";
   <div class="container">
     <ProductList />
   </div>
+  <AppFooter />
 </template>
 
 <style lang="scss" scoped>
