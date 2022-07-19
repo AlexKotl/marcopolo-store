@@ -1,12 +1,31 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { productImage } from "@/config/icons";
 import Button from "@/components/common/Button.vue";
+import { useStore } from "@/stores/store";
+import type { IProduct } from "@/types/products";
 
 const props = defineProps<{
   title: string;
   quality?: string;
   imageUrl?: string;
 }>();
+
+const product: IProduct = {
+  title: props.title,
+  quality: props.quality,
+  imageUrl: props.imageUrl,
+};
+
+const inBasket = ref(false);
+const store = useStore();
+
+const addBasket = () => {
+  if (!inBasket.value) {
+    store.addBasket(product);
+    inBasket.value = true;
+  }
+};
 </script>
 
 <template>
@@ -20,7 +39,7 @@ const props = defineProps<{
     <div class="product__subtitle">
       {{ quality }}
     </div>
-    <Button>Add to cart</Button>
+    <Button @click="addBasket" :disabled="inBasket">{{ inBasket ? "In the cart" : "Add to cart" }}</Button>
   </div>
 </template>
 

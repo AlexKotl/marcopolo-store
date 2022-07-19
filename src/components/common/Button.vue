@@ -17,6 +17,12 @@
   width: 100%;
   border: 0;
 
+  &:disabled {
+    background-color: white;
+    border: 1px solid #aaa;
+    color: black;
+  }
+
   &:hover {
     opacity: 0.8;
   }

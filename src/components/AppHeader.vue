@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import CountButton from "./common/CountButton.vue";
 import { iconBasket, iconStarO } from "@/config/icons";
+import { useStore } from "@/stores/store";
+
+const store = useStore();
 </script>
 
 <template>
@@ -9,8 +12,8 @@ import { iconBasket, iconStarO } from "@/config/icons";
       <input type="text" placeholder="Quick search..." class="header__search__input" />
     </div>
     <div class="header__menu">
-      <CountButton :count="4" :icon="iconStarO" />
-      <CountButton :count="2" :icon="iconBasket" />
+      <CountButton :count="store.wishlistCount" :icon="iconStarO" />
+      <CountButton :count="store.basketCount" :icon="iconBasket" />
     </div>
   </div>
 </template>
