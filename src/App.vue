@@ -13,6 +13,7 @@ import ProductList from "./components/ProductList.vue";
 <style lang="scss" scoped>
 .container {
   max-width: 800px;
+  padding: 0 10px;
   margin: auto;
 }
 </style>
