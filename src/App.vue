@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
-import { getProducts } from "./api/products";
-
-onMounted(async () => {
-  const { data } = await getProducts();
-});
+import AppHeader from "./components/AppHeader.vue";
+import ProductList from "./components/ProductList.vue";
 </script>
 
-<template></template>
+<template>
+  <div class="container">
+    <AppHeader />
+    <ProductList />
+  </div>
+</template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+</style>
