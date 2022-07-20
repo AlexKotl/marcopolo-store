@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import CountButton from "./common/CountButton.vue";
+import CountButton from "./elements/CountButton.vue";
 import { iconBasket, iconStarO } from "@/config/icons";
 import { useStore } from "@/stores/store";
 
@@ -20,7 +20,15 @@ watch(searchQuery, (query) => {
       </div>
       <div class="header__menu">
         <CountButton :count="store.wishlistCount" :icon="iconStarO" />
-        <CountButton :count="store.basketCount" :icon="iconBasket" />
+        <CountButton
+          :count="store.basketCount"
+          :icon="iconBasket"
+          @click="
+            () => {
+              store.setShowBasket(true);
+            }
+          "
+        />
       </div>
     </div>
   </div>

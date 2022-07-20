@@ -2,13 +2,14 @@
 
 Simple store demo app.
 
-**Vue 3** + **Pinia** + **axios** + **SCSS**
+**Vue 3** + **TypeScript** + **Pinia** + **axios** + **SCSS**
 
 **Features**
 
 - add product to basket
 - add/remove product from wishlist
 - quick search by currently displayed products
+- responsive design
 
 ## Live Demo
 
@@ -22,3 +23,8 @@ http://marcopolo-demo.s3-website.af-south-1.amazonaws.com/
 npm i
 npm run dev
 ```
+
+## To Do
+
+- add loading indicator
+- add pagination

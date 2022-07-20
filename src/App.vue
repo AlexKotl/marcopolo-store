@@ -2,9 +2,11 @@
 import AppHeader from "./components/AppHeader.vue";
 import ProductList from "./components/ProductList.vue";
 import AppFooter from "./components/AppFooter.vue";
+import Basket from "./components/Basket.vue";
 </script>
 
 <template>
+  <Basket></Basket>
   <AppHeader />
   <div class="container">
     <ProductList />

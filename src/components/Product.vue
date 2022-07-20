@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { productImage, iconStarO, iconStar } from "@/config/icons";
-import Button from "@/components/common/Button.vue";
+import Button from "@/components/elements/Button.vue";
 import { useStore } from "@/stores/store";
 import type { IProduct } from "@/types/products";
 
@@ -28,6 +28,7 @@ const addBasket = () => {
   if (!inBasket.value) {
     store.addBasket(product);
     inBasket.value = true;
+    store.setShowBasket(true);
   }
 };
 

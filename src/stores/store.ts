@@ -9,11 +9,14 @@ export const useStore = defineStore({
     wishlist: [] as Array<IProduct>,
     basket: [] as Array<IProduct>,
     searchQueryText: "",
+    showBasket: false,
   }),
   getters: {
     wishlistCount: (state) => state.wishlist.length,
     basketCount: (state) => state.basket.length,
+    getBasket: (state) => state.basket,
     searchQuery: (state) => state.searchQueryText,
+    isShowBasket: (state) => state.showBasket,
   },
   actions: {
     addWishlist(product: IProduct) {
@@ -27,6 +30,9 @@ export const useStore = defineStore({
     },
     setSearchQuery(query: string) {
       this.searchQueryText = query;
+    },
+    setShowBasket(show: boolean) {
+      this.showBasket = show;
     },
   },
 });
