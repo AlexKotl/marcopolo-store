@@ -9,14 +9,14 @@ const props = defineProps<{
   productId: string;
   title: string;
   quality?: string;
-  imageUrl?: string;
+  image?: string;
 }>();
 
 const product: IProduct = {
   id: props.productId,
   title: props.title,
   quality: props.quality,
-  imageUrl: props.imageUrl,
+  image: props.image,
 };
 
 const inBasket = ref(false);
@@ -45,7 +45,7 @@ const removeWishlist = () => {
 <template>
   <div class="product">
     <div class="product__image">
-      <img :src="imageUrl || productImage" alt="" />
+      <img :src="image || productImage" alt="" />
     </div>
     <div class="product__description">
       <div>
@@ -80,6 +80,7 @@ const removeWishlist = () => {
 
     &__title {
       font-size: 15px;
+      line-height: 20px;
     }
     &__subtitle {
       font-size: 13px;

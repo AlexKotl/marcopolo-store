@@ -8,11 +8,12 @@ export const useStore = defineStore({
   state: () => ({
     wishlist: [] as Array<IProduct>,
     basket: [] as Array<IProduct>,
-    searchQuery: "",
+    searchQueryText: "",
   }),
   getters: {
     wishlistCount: (state) => state.wishlist.length,
     basketCount: (state) => state.basket.length,
+    searchQuery: (state) => state.searchQueryText,
   },
   actions: {
     addWishlist(product: IProduct) {
@@ -23,6 +24,9 @@ export const useStore = defineStore({
     },
     removeWishlist(product: IProduct) {
       this.wishlist = this.wishlist.filter((p: IProduct) => p.id !== product.id);
+    },
+    setSearchQuery(query: string) {
+      this.searchQueryText = query;
     },
   },
 });

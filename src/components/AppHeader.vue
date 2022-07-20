@@ -1,16 +1,22 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
 import CountButton from "./common/CountButton.vue";
 import { iconBasket, iconStarO } from "@/config/icons";
 import { useStore } from "@/stores/store";
 
 const store = useStore();
+let searchQuery = ref("");
+
+watch(searchQuery, (query) => {
+  store.setSearchQuery(query);
+});
 </script>
 
 <template>
   <div class="header">
     <div class="header__container">
       <div class="header__search">
-        <input type="text" placeholder="Quick search..." class="header__search__input" />
+        <input v-model="searchQuery" type="text" placeholder="Quick search..." class="header__search__input" />
       </div>
       <div class="header__menu">
         <CountButton :count="store.wishlistCount" :icon="iconStarO" />

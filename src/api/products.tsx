@@ -21,5 +21,12 @@ export const getFilteredProducts = async (page = 0, group = "41") => {
     return true;
   });
 
-  return products;
+  return products.map(
+    (p: any): IProduct => ({
+      id: p.id,
+      title: p.articleDescription,
+      quality: p.qualityName,
+      image: p.image,
+    }),
+  );
 };
