@@ -16,6 +16,7 @@
   padding: 6px 10px;
   width: 100%;
   border: 0;
+  transition: opacity 0.3s;
 
   &:disabled {
     background-color: white;

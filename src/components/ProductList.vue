@@ -38,7 +38,7 @@ const matchQuery = (product: IProduct) =>
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 15px;
-  row-gap: 20px;
+  row-gap: 30px;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr 1fr;

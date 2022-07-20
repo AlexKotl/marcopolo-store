@@ -26,7 +26,9 @@ export const getFilteredProducts = async (page = 0, group = "41") => {
       id: p.id,
       title: p.articleDescription,
       quality: p.qualityName,
-      image: p.image,
+      // TEMP fix: as server returns incorrect images urls with 404 - set empty string to fallback to default image
+      // image: p.image,
+      image: "",
     }),
   );
 };

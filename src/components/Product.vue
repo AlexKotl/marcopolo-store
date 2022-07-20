@@ -68,6 +68,10 @@ const removeWishlist = () => {
 
 <style lang="scss" scoped>
 .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &__image {
     img {
       width: 100%;
@@ -75,8 +79,9 @@ const removeWishlist = () => {
   }
   &__description {
     display: flex;
+    flex: 1 1 0;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 
     &__title {
       font-size: 15px;
