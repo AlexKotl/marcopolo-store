@@ -1,12 +1,20 @@
 # MARK O'POLO Products List
 
-Demo app with store listing
+Simple store demo app.
 
 **Vue 3** + **Pinia** + **axios** + **SCSS**
 
+**Features**
+
+- add product to basket
+- add/remove product from wishlist
+- quick search by currently displayed products
+
 ## Live Demo
 
-[http://marcopolo-demo.s3-website.af-south-1.amazonaws.com/]
+http://marcopolo-demo.s3-website.af-south-1.amazonaws.com/
+
+![screenshot](https://github.com/AlexKotl/marcopolo-store/blob/master/docs/screenshot.png?raw=true)
 
 ## Run locally
 
