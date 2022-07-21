@@ -8,6 +8,30 @@ export const getProducts = (): Promise<any> => {
 export const getFilteredProducts = async (page = 0, group = "41") => {
   const { data } = await getProducts();
 
+  // helping array to track duplicated ids
+  const ids: string[] = [];
+  const products = data.products.reduce((prev: any, current: any): Array<IProduct> => {
+    if (current.productGroup === group && ids.indexOf(current.id) === -1) {
+      prev.push({
+        id: current.id,
+        title: current.articleDescription,
+        quality: current.qualityName,
+        // TEMP fix: as server returns incorrect images urls with 404 - set empty string to fallback to default image
+        // image: p.image,
+        image: "",
+      } as IProduct);
+      ids.push(current.id);
+    }
+    return prev;
+  }, [] as Array<IProduct>);
+
+  return products;
+};
+
+// this method not used, just to show different approach
+export const getFilteredProductsLong = async (page = 0, group = "41") => {
+  const { data } = await getProducts();
+
   // filter by group
   let products = data.products.filter((p: any) => p.productGroup === group);
 
